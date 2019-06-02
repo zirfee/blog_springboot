@@ -6,7 +6,10 @@ import com.zirfee.blog.service.tagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +46,14 @@ public class articleController {
     @GetMapping("/article/getArticleByTag/{tagTitle}")
     public Object getArticleByTag(@PathVariable("tagTitle") String tagTitle){
         return articleService.getByTagTitle(tagTitle);
+    }
+    @GetMapping("/article/getArticlesTime")
+    public Object getArticlesTime(){
+         return articleService.getMonth();
+    }
+    @GetMapping("/article/getArticleByTime/{time}")
+    public Object getArticleByTime(@PathVariable("time") String time){
+            return articleService.getArticleByTime("2019-06");
     }
 }
 

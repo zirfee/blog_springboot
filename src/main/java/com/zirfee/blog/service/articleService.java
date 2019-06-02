@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -24,7 +28,16 @@ public class articleService {
         return articleDao.getByTagTitle(tagTitle);
      }
 
+   public List<Object[]> getMonth(){
+      return  articleDao.getMonths();
+   }
+   public List<Object> getArticleByTime(String time){
+      /* Iterator it=articleDao.getArticleByTime(time).iterator();*/
+      /* articleDao.getArticleByTime(time).stream().forEach(item->System.out.println(item[0]));*/
+       List<Object> list = new ArrayList<>();
 
+        return list;
+   }
     public List<article> getAllArticles(){
         return articleDao.findAll();
     }
