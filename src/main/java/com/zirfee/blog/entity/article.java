@@ -30,7 +30,12 @@ public class article {
 
     }
 
-    public article(Long articleId,String articleTitle, String articleDescribe,Object articleTime, Long readTimes, Long commentTimes, Long likeTimes) {
+    public article(Long articleId,String articleTitle) {
+        this.articleId=articleId;
+        this.articleTitle = articleTitle;
+    }
+
+    public article(Long articleId, String articleTitle, String articleDescribe, Object articleTime, Long readTimes, Long commentTimes, Long likeTimes) {
         this.articleId=articleId;
         this.articleTitle = articleTitle;
         this.articleDescribe = articleDescribe;

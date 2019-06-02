@@ -22,5 +22,9 @@ public class tagService {
         }
         return set;
     }
+    public List<tag> getAllTags(){
+        return tagDao.findAll();
+    }
+
 
 }

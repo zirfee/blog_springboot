@@ -14,9 +14,16 @@ public class articleService {
     @Autowired
     private articleDao articleDao;
 
-    public List<Object> getAllArticlesProfile(){
+    public List<article> getAllArticlesProfile(){
         return articleDao.getProfile();
     }
+    public List<article> getRecommend(){
+        return articleDao.getRecommend();
+    }
+     public List<article> getByTagTitle(String tagTitle){
+        return articleDao.getByTagTitle(tagTitle);
+     }
+
 
     public List<article> getAllArticles(){
         return articleDao.findAll();

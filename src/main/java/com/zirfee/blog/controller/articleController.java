@@ -36,5 +36,13 @@ public class articleController {
     public Object getOneArticle(@PathVariable("articleId") Long articleId){
         return articleService.getArticle(articleId);
     }
+    @GetMapping("/article/getRecommend")
+    public Object getRecommend(){
+        return articleService.getRecommend();
+    }
+    @GetMapping("/article/getArticleByTag/{tagTitle}")
+    public Object getArticleByTag(@PathVariable("tagTitle") String tagTitle){
+        return articleService.getByTagTitle(tagTitle);
+    }
 }
 
