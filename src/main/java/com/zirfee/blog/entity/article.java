@@ -24,8 +24,10 @@ public class article {
     @ManyToMany
     @JoinTable(name = "article_tag",inverseJoinColumns = @JoinColumn(name = "tag_id"),
             joinColumns = @JoinColumn(name = "article_id") )
-    private Set<tag> tags=new HashSet<>();
-
+    private Set<tag> tags;
+     @OneToMany(mappedBy = "article")
+    /* @JoinColumn(name = "articleId")*/
+     private Set<comment> comments;
     public article(){
 
     }
@@ -115,5 +117,13 @@ public class article {
 
     public void setTags(Set<tag> tags) {
         this.tags = tags;
+    }
+
+    public Set<comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<comment> comments) {
+        this.comments = comments;
     }
 }
