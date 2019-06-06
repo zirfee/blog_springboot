@@ -18,6 +18,25 @@ public class comment {
     @ManyToOne
     @JoinColumn(name = "articleId")
     private article article;
+    @Transient
+    private String visitorNickname;
+
+    public comment() {
+    }
+
+    public comment(String commentContent, Object commentTime, String visitorNickname) {
+        this.commentContent = commentContent;
+        this.commentTime = (Timestamp) commentTime;
+        this.visitorNickname = visitorNickname;
+    }
+
+    public String getVisitorNickname() {
+        return visitorNickname;
+    }
+
+    public void setVisitorNickname(String visitorNickname) {
+        this.visitorNickname = visitorNickname;
+    }
 
     public Long getCommentId() {
         return commentId;

@@ -37,7 +37,7 @@ public class articleController {
 
     @GetMapping("/article/getArticle/{articleId}")
     public Object getOneArticle(@PathVariable("articleId") Long articleId){
-        return articleService.getArticle(articleId);
+        return articleService.getArticleById(articleId);
     }
     @GetMapping("/article/getRecommend")
     public Object getRecommend(){

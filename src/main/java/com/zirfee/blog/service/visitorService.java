@@ -4,8 +4,10 @@ import com.zirfee.blog.dao.visitorDao;
 import com.zirfee.blog.entity.visitor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class visitorService {
     @Autowired
     private visitorDao visitorDao;

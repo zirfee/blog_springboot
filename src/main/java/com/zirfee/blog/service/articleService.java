@@ -53,7 +53,7 @@ public class articleService {
     public List<article> getAllArticles(){
         return articleDao.findAll();
     }
-    public article getArticle(Long articleId){
+    public article getArticleById(Long articleId){
         return articleDao.findById(articleId).get();
     }
     public void addArticle(article article){

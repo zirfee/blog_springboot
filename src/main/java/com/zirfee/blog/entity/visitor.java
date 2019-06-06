@@ -1,5 +1,7 @@
 package com.zirfee.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -14,6 +16,7 @@ public class visitor {
    /* @JoinColumn(name = "visitorId")*/
     private Set<message> messages;
     @OneToMany(mappedBy = "visitor")
+    @JsonIgnore
     /*@JoinColumn(name = "visitorId")*/
     private Set<comment> comments;
 

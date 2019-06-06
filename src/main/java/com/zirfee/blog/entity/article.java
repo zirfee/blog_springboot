@@ -1,5 +1,7 @@
 package com.zirfee.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.HashSet;
@@ -25,7 +27,9 @@ public class article {
     @JoinTable(name = "article_tag",inverseJoinColumns = @JoinColumn(name = "tag_id"),
             joinColumns = @JoinColumn(name = "article_id") )
     private Set<tag> tags;
+
      @OneToMany(mappedBy = "article")
+     @JsonIgnore
     /* @JoinColumn(name = "articleId")*/
      private Set<comment> comments;
     public article(){
