@@ -6,6 +6,7 @@ import com.zirfee.blog.service.tagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,6 +28,7 @@ public class articleController {
         article.setArticleDescribe((String)jsonStr.get("articleDescribe"));
         article.setArticleContent((String)jsonStr.get("articleContent"));
         article.setTags(tagService.getTagsByTitle((List<String>)jsonStr.get("articleTags")));
+        article.setArticleTime(new Timestamp(System.currentTimeMillis()));
         articleService.addArticle(article);
         return "success";
     }
@@ -53,7 +55,7 @@ public class articleController {
     }
     @GetMapping("/article/getArticleByTime/{time}")
     public Object getArticleByTime(@PathVariable("time") String time){
-            return articleService.getArticleByTime("2019-06");
+            return articleService.getArticleByTime(time.substring(0,4)+"-"+time.substring(4,6));
     }
 }
 

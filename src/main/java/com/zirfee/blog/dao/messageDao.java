@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface messageDao extends JpaRepository<message,Long> {
-    @Query(value = "select new message(m.messageTime,m.messageContent,v.nickName) from message m join m.visitor v")
+    @Query(value = "select new message(m.messageTime,m.messageContent,v.nickName) from message m join m.visitor v order by m.messageTime desc")
     List<message> getAllMessages();
 }

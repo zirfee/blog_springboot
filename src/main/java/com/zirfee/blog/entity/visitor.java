@@ -12,6 +12,8 @@ public class visitor {
     private Long visitorId;
     private String nickName;
     private String email;
+    private String password;
+    private String role;
     @OneToMany(mappedBy = "visitor")
    /* @JoinColumn(name = "visitorId")*/
     private Set<message> messages;
@@ -40,16 +42,24 @@ public class visitor {
         return email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public Set<message> getLeaveMessages() {
+    public Set<message> getMessages() {
         return messages;
     }
 
-    public void setLeaveMessages(Set<message> leaveMessages) {
-        this.messages = leaveMessages;
+    public void setMessages(Set<message> messages) {
+        this.messages = messages;
     }
 
     public Set<comment> getComments() {
@@ -58,5 +68,13 @@ public class visitor {
 
     public void setComments(Set<comment> comments) {
         this.comments = comments;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

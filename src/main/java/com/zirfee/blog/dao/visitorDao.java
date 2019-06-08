@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface visitorDao extends JpaRepository<visitor,Long> {
+
+    visitor findByNickName(String s);
+    visitor findByEmail(String s);
 }

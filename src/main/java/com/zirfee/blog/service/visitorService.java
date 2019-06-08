@@ -15,4 +15,8 @@ public class visitorService {
     public visitor getVisitorById(Long id){
        return visitorDao.findById(id).get();
     }
+    public String addVisitor(visitor visitor){
+        visitorDao.save(visitor);
+        return "success";
+    }
 }
