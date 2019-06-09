@@ -29,4 +29,6 @@ public interface articleDao extends JpaRepository<article,Long> {
    /* List<article> findAllByArticleTimeLike(String time);*/
     @Query(value = "select a.article_id,a.article_title,a.article_describe,a.article_time,a.read_times,a.comment_times,a.like_times from article a where a.article_time like ?1%",nativeQuery = true)
      List<Object[]> getArticleByTime(String time);
+
+     article findByArticleId(Long id);
 }

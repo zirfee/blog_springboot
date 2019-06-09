@@ -54,16 +54,18 @@ public class articleService {
         return articleDao.findAll();
     }
     public article getArticleById(Long articleId){
-        return articleDao.findById(articleId).get();
+        return articleDao.findByArticleId(articleId);
     }
     public void addArticle(article article){
         articleDao.save(article);
     }
     public void updateArticle(article article){
+
         articleDao.save(article);
     }
     public void deleteArticleById(Long articleId){
         articleDao.deleteById(articleId);
     }
+
 }
 

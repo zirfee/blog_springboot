@@ -7,10 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +52,27 @@ public class articleController {
     @GetMapping("/article/getArticleByTime/{time}")
     public Object getArticleByTime(@PathVariable("time") String time){
             return articleService.getArticleByTime(time.substring(0,4)+"-"+time.substring(4,6));
+    }
+    @GetMapping("/article/addArticleCommentTimes")
+    public Object changeCommentTimes( @RequestParam("articleId") Long articleId){
+        article a=articleService.getArticleById(articleId);
+         a.setCommentTimes(a.getCommentTimes()+1);
+         articleService.updateArticle(a);
+        return "success";
+    }
+    @GetMapping("/article/addArticleReadTimes")
+    public Object changeReadTimes( @RequestParam("articleId") Long articleId){
+        article a=articleService.getArticleById(articleId);
+        a.setReadTimes(a.getReadTimes()+1);
+        articleService.updateArticle(a);
+        return "success";
+    }
+    @GetMapping("/article/addArticleLikeTimes")
+    public Object changeLikeTimes( @RequestParam("articleId") Long articleId){
+        article a=articleService.getArticleById(articleId);
+        a.setLikeTimes(a.getLikeTimes()+1);
+        articleService.updateArticle(a);
+        return "success";
     }
 }
 
